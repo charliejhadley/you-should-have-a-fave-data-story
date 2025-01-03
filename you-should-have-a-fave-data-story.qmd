@@ -1,0 +1,252 @@
+---
+title: ""
+format:
+  closeread-html:
+    remove-header-space: true
+    css: styles.scss
+echo: false
+warning: false
+message: false
+from: markdown+emoji
+---
+
+```{r setup}
+library("tidyverse")
+library("patchwork")
+
+col_religion <- "#819ECE"
+col_volunteer <- "#3C886E"
+col_phone <- "#C28AF3"
+col_misc <- "#E1937B"
+col_sleeping <- "#DDD346"
+col_personal_care <- "#4288F1"
+col_eat <- "#6EBA38"
+col_edu <- "#EF8632"
+col_work <- "#CA42A0"
+col_housework <- "#5DCAF3"
+col_household_care <- "#D44A62"
+col_nonhouse_care <- "#86594C"
+col_shopping <- "#6EAB8A"
+col_pro_care <- "#9D79C3"
+col_leisure <- "#6175E4"
+col_sports <- "#D879BF"
+col_travel <- "#BBBBBB"
+
+branded_colors <- c("col_religion" = col_religion, "col_volunteer" = col_volunteer, "col_phone" = col_phone, "col_misc" = col_misc, "col_sleeping" = col_sleeping, "col_personal_care" = col_personal_care, "col_edu" = col_edu, "col_eat" = col_eat, "col_work" = col_work, "col_housework" = col_housework, "col_household_care" = col_household_care, "col_nonhouse_care" = col_nonhouse_care, "col_shopping" = col_shopping, "col_pro_care" = col_pro_care, "col_leisure" = col_leisure, "col_sports" = col_sports)
+```
+
+
+<!-- https://github.com/qmd-lab/closeread/issues/158 -->
+::::: {style="--cr-narrative-font-size:4rem;--cr-narrative-font-family:Futura;"}
+
+::::{.cr-section layout="sidebar-right"}
+
+@cr-you-should-have
+
+:::{#cr-you-should-have .large-fixed-text-left}
+You should have a favourite...
+:::
+
+Data <s>visualisation</s> story
+
+::::
+
+::::{.cr-section layout="sidebar-right"}
+
+@cr-why
+
+::: {#cr-why .large-fixed-text-left}
+
+Just like any other story, data stories can be...
+
+:::
+
+Informative
+
+Inspiring
+
+Beautiful
+
+::::
+
+:::::
+
+::::: {style="--cr-narrative-font-size:4rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
+::::{.cr-section layout="sidebar-left"}
+
+@cr-dataviz-simple-definition
+
+::: {#cr-dataviz-simple-definition .medium-fixed-text}
+A **data visualisation** is *just* a graphical representation of data.
+
+<span style='color:white'>Dataviz are not necessarily intelligible - which is where data stories come in.</span>
+:::
+
+```{r}
+#| fig-width: 8
+#| fig-height: 16
+vore_count <- msleep %>%
+  drop_na(vore) %>% 
+  count(vore) %>% 
+  mutate(vore = fct_reorder(vore, n))
+
+gg_pie <- vore_count %>% 
+  ggplot() +
+  aes(x = "",
+      y = vore,
+      fill = vore) +
+  geom_bar(stat="identity", width=1) +
+  scale_fill_manual(values = sample(as.vector(branded_colors), 4)) +
+  guides(fill = guide_none()) +
+  coord_polar("y", start=0) +
+  theme_void()
+
+gg_bar <- vore_count %>% 
+  ggplot() +
+  aes(x = n,
+      y = vore,
+      fill = vore) +
+  geom_col() +
+  scale_fill_manual(values = sample(as.vector(branded_colors), 4)) +
+  guides(fill = guide_none()) +
+  theme_void()
+
+gg_donut <- vore_count %>%
+  mutate(x = 4,
+         vore = as.character(vore)) %>% 
+  ggplot() +
+  aes(x = x, y = n, fill = vore) +
+  geom_col(width = 1) +
+  scale_fill_manual(values = sample(as.vector(branded_colors), 4)) +
+  guides(fill = guide_none()) +
+  coord_polar("y", start = 0) +
+  xlim(c(0.2, 4 + 0.5)) +
+  theme_void()
+
+gg_pie / gg_bar / gg_donut
+```
+
+
+@cr-dataviz-full-definition
+
+::: {#cr-dataviz-full-definition .medium-fixed-text}
+A **data visualisation** is *just* a graphical representation of data.
+
+Dataviz are not necessarily intelligible - and can be quite confusing. 
+:::
+
+```{r}
+msleep %>% 
+  ggplot(aes(x = sleep_total,
+             y = sleep_rem,
+             colour = vore)) +
+  geom_point() +
+  geom_smooth()
+
+ggplot() +
+  geom_point(data = msleep,
+             aes(x = sleep_total,
+             y = sleep_rem,
+             colour = vore), show.legend = FALSE,
+             size = 4) +
+  geom_smooth(data = filter(msleep, vore == "carni"),
+              aes(x = sleep_total, 
+                  y = sleep_rem),
+              colour = col_edu) +
+  scale_colour_manual(values = sample(as.vector(branded_colors), 4)) +
+  theme_void()
+```
+
+@cr-data-story-definition 
+
+::: {#cr-data-story-definition .medium-fixed-text}
+Data **storytelling** is about communicating. Data stories make dataviz meaningful and engaging.
+
+I'll demonstrate what I mean by sharing **my** favourite data story - ["A Day in the Life of Americans" by Nathan Yau](https://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans/).
+:::
+
+![](nathan-yau.png)
+
+::::
+
+:::::
+
+::::: {style="--cr-narrative-font-size:2rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
+::::{.cr-section layout="sidebar-left"}
+
+Sit back and take in this 60 second clip of Nathan Yau's data story. While watching I want you to think about a few questions...
+@cr-day-in-the-life-short
+
+::: {#cr-day-in-the-life-short .scale-to-fill}
+{{< video a-day-in-the-life_1080.mov width="100%">}}
+:::
+
+- What's the first thing you notice?
+
+- What questions do you have about
+
+    - The data
+    
+    - The story
+    
+- What do you think about doing?
+
+::::
+
+:::::
+
+::::: {style="--cr-narrative-font-size:1.75rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
+::::{.cr-section layout="sidebar-left"}
+
+Let me take you through some of the comments I've heard people make about this data story. @cr-day-in-the-life-420
+
+::: {#cr-day-in-the-life-420}
+![](a-day-in-the-life-420-screenshot.png)
+:::
+
+:heart: There are lots of bright, clear colours. [@cr-day-in-the-life-420]{pan-to="-20%,0%" scale-by="1.1"}
+
+:bed: No matter what time of day it is, there are always people <span style="color:var(--col-sleeping)">sleeping</span>. [@cr-day-in-the-life-420]{pan-to="-200%,10%" scale-by="5"}
+
+:thinking: There are <span style="color:var(--col-work)">fewer people working</span>, and <span style="color:var(--col-housework)">more people doing housework</span> than you might expect for the early afternoon. [@cr-day-in-the-life-420]{pan-to="-10%,-80%" scale-by="3"}
+
+:bus: It's really clever to put <span style="color:var(--col-travel)">travelling as grey and in the middle</span>.<br><br><em>Commuting is a liminal state</em>.<br>You're likely not in a traffic jam because you **want to be**. [@cr-day-in-the-life-420]{pan-to="-20%,0%" scale-by="1.1"}
+
+:face_with_spiral_eyes: But wait a minute...<br><br>What does it mean when there's a different coloured dot in a cluster?<br>Is there really someone <span style="color:var(--col-sleeping)">sleeping</span> while at <span style="color:var(--col-work)">work</span> - are they using a nap pod?[@cr-day-in-the-life-420]{pan-to="-10%,-80%" scale-by="3"}
+
+:monocle_face: Actually, how sure are we that this is **exactly** what people are doing at 4:20pm?<br><br>Who are these people?<br><br>Where is the data from?[@cr-day-in-the-life-420]
+
+:exploding_head: This data visualisation **doesn't** contain exactly what people are doing minute by minute.[@cr-day-in-the-life-420]{pan-to="150%,-160%" scale-by="4"}
+
+The actual data from the [American Time Use Survey](https://www.bls.gov/tus/questionnaires/tuquestionnaire.pdf) is too complicated to understand in its raw form.
+<br>
+<br>
+This is why I **love** Nathan Yau's data visualisation. 
+<br>
+<br>
+It transforms this complex, messy, human data into something we can begin to understand and explore.
+[@cr-time-use-survey-screenshot]
+
+::: {#cr-time-use-survey-screenshot}
+![](time-use-survey-data-entry.png)
+:::
+
+This is beautiful data storytelling.
+<br>
+<br>
+[@cr-day-in-the-life-420]
+
+::::
+:::::
+
+::::: {style="--cr-narrative-font-size:4rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 0fr;--cr-section-background-color:white"}
+::::{.cr-section layout="sidebar-left"}
+
+@cr-expectation-management
+
+::: {#cr-expectation-management}
+However, you don't need to build something complex.
+:::
+
+::::
+:::::
