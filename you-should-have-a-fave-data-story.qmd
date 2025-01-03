@@ -4,7 +4,6 @@ format:
   closeread-html:
     remove-header-space: true
     css: styles.scss
-    self-contained: true
 echo: false
 warning: false
 message: false
