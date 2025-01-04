@@ -215,7 +215,7 @@ I'll demonstrate by sharing **my** favourite data story - ["A Day in the Life of
 
 :::::
 
-::::: {style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
+::::: {style="--cr-narrative-font-size:2vw;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
 ::::{.cr-section layout="sidebar-left"}
 
 Sit back and take in this 60 second clip of Nathan Yau's data story. While watching I want you to think about a few questions...
