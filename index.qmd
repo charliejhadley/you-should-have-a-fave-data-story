@@ -39,7 +39,7 @@ branded_colors <- c("col_religion" = col_religion, "col_volunteer" = col_volunte
 
 
 <!-- https://github.com/qmd-lab/closeread/issues/158 -->
-::::: {style="--cr-narrative-font-size:4rem;--cr-narrative-font-family:Futura;"}
+::::: {style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Futura;"}
 
 ::::{.cr-section layout="sidebar-right"}
 
@@ -73,7 +73,7 @@ Beautiful
 
 :::::
 
-::::: {style="--cr-narrative-font-size:4rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
+::::: {style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
 ::::{.cr-section layout="sidebar-left"}
 
 @cr-dataviz-simple-definition
@@ -206,7 +206,7 @@ gg_smooth / gg_violin / gg_contour / gg_boxplot
 ::: {#cr-data-story-definition .medium-fixed-text}
 Data **storytelling** is about communicating. Data stories make dataviz meaningful and engaging.
 
-I'll demonstrate what I mean by sharing **my** favourite data story - ["A Day in the Life of Americans" by Nathan Yau](https://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans/).
+I'll demonstrate by sharing **my** favourite data story - ["A Day in the Life of Americans" by Nathan Yau](https://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans/).
 :::
 
 ![](nathan-yau.png)
@@ -283,7 +283,7 @@ This is beautiful data storytelling.
 ::::
 :::::
 
-::::: {style="--cr-narrative-font-size:4rem;--cr-narrative-font-family:Futura;"}
+::::: {style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Futura;"}
 
 ::::{.cr-section layout="sidebar-right"}
 
@@ -324,13 +324,14 @@ Nathan Yau's "Day in the Life" was very much an enjoyable <em>choose your own ad
 <br>
 This is very much a **difficult read** as bibliophiles might say. It's dense.
 
-Lines between ingredients indicate they share flavour chemicals. 
-<br>
-<br>
 Colour indicates ingredient type. 
 <br>
 <br>
 Size indicates prelevance in the **56,000 recipes** studied in the paper it comes from.
+<br>
+<br>
+Lines between ingredients indicate they share flavour chemicals.
+[@cr-flavour-pairing-network]{pan-to="-100%,20%" scale-by="1.8"}
 
 That's fascinating! 
 <br>
@@ -339,6 +340,7 @@ The [research paper investigates](https://doi.org/10.1038/srep00196) which regio
 <br>
 <br>
 I **love** that this has been studied and that this visualisation tries to bring all that information together.
+[@cr-flavour-pairing-network]
 
 But. There are big data quality issues here.
 <br>
@@ -349,11 +351,10 @@ Are "brown rice" and "rice" definitely two distinct ingredients?
 Liver comes in three types - beef, chicken and undefined?
 [@cr-flavour-pairing-network]{pan-to="-80%,50%" scale-by="4"}
 
-It's a little unusual to have such a flawed data story as my 2nd favourite.
+It's a little unusual to have a data story with so many data quality issues as my 2nd favourite.
+<br>
 <br>
 But it has personal importance to me.
-<br>
-<br>
 The data behind the chart was the first dataset I ever [(struggled to) read into R](https://stackoverflow.com/questions/30016817/importing-and-analysing-non-rectangular-csv-files-in-r).
 <br>
 <br>
@@ -381,7 +382,7 @@ There are lots of faults to find with that.
 
 :::::
 
-::::: {style="--cr-narrative-font-size:4rem;--cr-narrative-font-family:Futura;"}
+::::: {style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Futura;"}
 
 ::::{.cr-section layout="sidebar-right"}
 
@@ -398,7 +399,7 @@ Let's help you find your favourite data story!
 ::::: {style="--cr-narrative-font-size:2rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
 ::::{.cr-section layout="sidebar-left"}
 
-TidyTuesday is an incredible project that collates free, open-source datasets every week.
+[TidyTuesday](https://github.com/rfordatascience/tidytuesday) is an incredible project that collates free, open-source datasets every week.
 <br>
 <br>
 Folks are then invited to visualise the datasets and share them with the hashtag #tidytuesday on social media.
@@ -431,16 +432,70 @@ data_tidy_tuesdays %>%
   reactable(columns = list(type = colDef(show = FALSE)),
   rowStyle = function(index) {
       if (.[index, "type"] == "Important") {
-        list(background = "yellow")
+        list(background = colorspace::lighten(col_work, 0.6))
       }
   }
   )
 ```
 :::
 
-![](african-languages.png)
+![](african-languages.png)<br>
+From [Steven Ponce](https://www.linkedin.com/posts/stevenponce_viz-tidytuesday-rstats-activity-7258912742139379712-80Ce?utm_source=share&utm_medium=member_desktop)
 
-![](democracies.png)
+![](democracies.png)<br>
+From [Abhinav Malasi, @datarooster](https://www.instagram.com/p/CpdvddrD3yT/?hl=en)
+
+There are plenty of fun datasets...[@cr-fun-tidytuesday]
+
+::: {#cr-fun-tidytuesday}
+![](tidytuesday.png)
+```{r}
+data_tidy_tuesdays %>% 
+  select(date, data, article, type) %>% 
+  reactable(columns = list(type = colDef(show = FALSE)),
+  rowStyle = function(index) {
+      if (.[index, "type"] == "Fun") {
+        list(background = colorspace::lighten(col_leisure, 0.6))
+      }
+  }
+  )
+```
+:::
+
+![](we-were-on-a-break.png)<br>
+From [Joe Shaw, @JosephShaw_](https://joseph-shaw.github.io/)
+
+![](lego-cara.png)<br>
+From [Cara Thompson, @cararthompson](https://www.cararthompson.com/portfolio)
+
+And there are also... unusual datasets[@cr-unusual-tidytuesday]
+
+::: {#cr-unusual-tidytuesday}
+![](tidytuesday.png)
+```{r}
+data_tidy_tuesdays %>% 
+  select(date, data, article, type) %>% 
+  reactable(columns = list(type = colDef(show = FALSE)),
+  rowStyle = function(index) {
+      if (.[index, "type"] == "Unusual") {
+        list(background = colorspace::lighten(col_misc, 0.6))
+      }
+  }
+  )
+```
+:::
+
+![](elevators.jpeg)<br>
+From [Dan Oehm, @danoehm](https://gradientdescending.com/category/tidy-tuesday/)
+
+The [TudyTuesday](https://github.com/rfordatascience/tidytuesday) project isn't just a great place for you to find your favourite data story.
+<br>
+<br>
+It's also an opportunity for you to flex your storytelling capabilities!
+Consider joining the **free, friendly and open-source** [Data Science Learning Community](https://dslc.io/).
+<br>
+<br>
+[@cr-intro-tidytuesday]
 
 ::::
 :::::
