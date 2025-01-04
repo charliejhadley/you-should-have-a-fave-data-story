@@ -46,6 +46,11 @@ ul.task-list li input[type="checkbox"] {
 <script src="index_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="index_files/libs/reactable-0.4.4/reactable.css" rel="stylesheet">
 <script src="index_files/libs/reactable-binding-0.4.4/reactable.js"></script>
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/tex-gyre-adventor" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
+<base target="_blank">
 <meta cr-debug-mode="false">
 <meta cr-remove-header-space="true">
 
@@ -64,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- https://github.com/qmd-lab/closeread/issues/158 -->
-<div style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Futura;">
+<div style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Karla;">
 <div class="cr-section cr-column-screen sidebar-right">
 <div class="narrative-col">
 <div class="trigger new-trigger" data-focus-on="cr-you-should-have">
@@ -118,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<div style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white">
+<div style="--cr-narrative-font-size:var(--size-large);--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white">
 <div class="cr-section cr-column-screen sidebar-left">
 <div class="narrative-col">
 <div class="trigger new-trigger" data-focus-on="cr-dataviz-simple-definition">
@@ -172,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div id="cr-dataviz-full-definition" class="medium-fixed-text sticky">
 <p>A <strong>data visualisation</strong> is <em>just</em> a graphical representation of data.</p>
-<p>Dataviz are not necessarily intelligible - and can be quite confusing.</p>
+<p><span style="color:black">Dataviz are not necessarily intelligible - which is where data stories come in.</span></p>
 </div>
 <div id="cr-data-story-definition" class="medium-fixed-text sticky">
 <p>Data <strong>storytelling</strong> is about communicating. Data stories make dataviz meaningful and engaging.</p>
@@ -182,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<div style="--cr-narrative-font-size:2rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white">
+<div style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white">
 <div class="cr-section cr-column-screen sidebar-left">
 <div class="narrative-col">
 <div class="trigger new-trigger" data-focus-on="cr-day-in-the-life-short">
@@ -213,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<div style="--cr-narrative-font-size:1.75rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white">
+<div style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white">
 <div class="cr-section cr-column-screen sidebar-left">
 <div class="narrative-col">
 <div class="trigger new-trigger" data-focus-on="cr-day-in-the-life-420">
@@ -279,7 +284,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<div style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Futura;">
+<div style="--cr-narrative-font-size:var(--size-large);">
 <div class="cr-section cr-column-screen sidebar-right">
 <div class="narrative-col">
 <div class="trigger new-trigger" data-focus-on="cr-expectation-management">
@@ -312,7 +317,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<div style="--cr-narrative-font-size:2rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white">
+<div style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white">
 <div class="cr-section cr-column-screen sidebar-left">
 <div class="narrative-col">
 <div class="trigger new-trigger" data-focus-on="cr-flavour-pairing-network">
@@ -373,7 +378,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<div style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Futura;">
+<div style="--cr-narrative-font-size:var(--size-large);">
 <div class="cr-section cr-column-screen sidebar-right">
 <div class="narrative-col">
 <div class="trigger new-trigger" data-focus-on="cr-get-you-a-favourite">
@@ -391,7 +396,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<div style="--cr-narrative-font-size:2rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white">
+<div style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white">
 <div class="cr-section cr-column-screen sidebar-left">
 <div class="narrative-col">
 <div class="trigger new-trigger" data-focus-on="cr-intro-tidytuesday">
@@ -485,6 +490,52 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell-output-display">
 <div class="reactable html-widget html-fill-item" id="htmlwidget-4439fe71ca904b5884ba" style="width:auto;height:auto;"></div>
 <script type="application/json" data-for="htmlwidget-4439fe71ca904b5884ba">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"date":["2020-09-08","2021-10-19","2022-04-19","2022-09-06","2022-12-06","2023-02-28","2023-07-11","2024-08-27","2024-11-05"],"data":["Friends","Big Pumpkins","Crossword Puzzles and Clues","LEGO database","Elevators","African Language","Global Surface Temperatures","The Power Rangers Franchise","Democracy and Dictatorship"],"article":["ceros interactive article","Great Pumpkin Commonwealth","Towards Data Science","rebrickable","Elevators data package and examples","AfriSenti: A Twitter Sentiment Analysis Benchmark for African Languages","Improvements in the GISTEMP Uncertainty Model","National Power Rangers Day (August 28)","Regime types and regime change: A new dataset on democracy, coups, and political institutions"],"type":["Fun","Unusual","Fun","Fun","Unusual","Important","Important","Fun","Important"]},"columns":[{"id":"date","name":"date","type":"Date"},{"id":"data","name":"data","type":"character"},{"id":"article","name":"article","type":"character"},{"id":"type","name":"type","type":"character","show":false}],"rowStyle":[null,{"background":"#FFD0C5"},null,null,{"background":"#FFD0C5"},null,null,null,null],"dataKey":"b5a0fa862ce3a60c428892ef4479a85a"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-font-family:Karla;">
+<div class="cr-section cr-column-screen sidebar-left">
+<div class="narrative-col">
+<div class="trigger new-trigger" data-focus-on="cr-wrap-up">
+<div class="narrative">
+
+</div>
+</div>
+<div class="trigger">
+<div class="narrative">
+<p><img src="a-day-in-the-life-420-screenshot.png" class="img-fluid"> <br> <a href="https://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans/">‘A Day in the Life’</a> was created by Nathan Yau. <br> <br> FlowingData <a href="https://flowingdata.com/membership/">provides membership</a> that includes tutorials on how to make similar charts.</p>
+</div>
+</div>
+<div class="trigger">
+<div class="narrative">
+<ul>
+<li>Thanks Cara!</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sticky-col">
+<div class="sticky-col-stack">
+<div id="cr-wrap-up" class="sticky" style="font-size:var(--size-normal);padding-right:50px;">
+<p>This <em>scrollytelling</em> article was written by <a href="https://visibledata.co.uk/">Charlotte Hadley</a> as an entry in the 2024 Closeread competition - the code is on GitHubXXXX.</p>
+<div data-focus-on="charliejhadley">
+<p>You can findon <a href="https://bsky.app/profile/charliejhadley.bsky.social">BlueSky</a> and <a href="https://www.linkedin.com/in/charliejhadley/">LinkedIn</a>, if you’ve been inspired to find a favourite data story please let her know with <strong>#favedatastory</strong>.</p>
+</div>
+<hr>
+<p><a href="https://closeread.dev/">Closeread</a> is a scrollytelling Quarto format.</p>
+<p>Not heard of Quarto?! It’s incredible. Use R, Python or Julia to build rich HTML, PDF or even Microsoft Office formatted reports - learn more at <a href="https://quarto.org">quarto.org</a>.</p>
+<p>Quarto and the Closeread competition are sponsored by <a href="https://quarto.org/about.html">Posit, PBC</a></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img src="quarto.jpg" width="100%"></p>
+</div><div class="column" style="width:40%;">
+<p><img src="posit.jpg" width="100%"></p>
+</div><div class="column" style="width:20%;">
+
 </div>
 </div>
 </div>

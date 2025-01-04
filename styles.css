@@ -1,12 +1,17 @@
 .large-fixed-text-left {
   font-size:var(--size-large);
-  font-family:Futura;
+  font-family:Karla;
   padding-left:50px;
+  font-weight: 800;
+}
+
+p {
+  color: var(--col-text);;
 }
 
 .medium-fixed-text {
-  font-size:2vw;
-  font-family:Futura;
+  font-size:var(--size-medium);
+  font-family:Karla;
   padding-right:50px;
 }
 
@@ -28,7 +33,10 @@
 */
 
 :root {
-  --size-large: 4vw;
+  --size-large: clamp(32px, 4vw, 92px);
+  --size-medium: clamp(24px, 2.5vw, 69px);
+  --size-normal: clamp(18px, 2vw, 52px);
+  --col-text:#212529;
   --col-religion: #819ECE;
   --col-volunteer: #3C886E;
   --col-phone: #C28AF3;

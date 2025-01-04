@@ -4,6 +4,8 @@ format:
   closeread-html:
     remove-header-space: true
     css: styles.css
+    narrative-font-family: Karla
+    narrative-text-color-sidebar: "#212529"
 echo: false
 warning: false
 message: false
@@ -39,7 +41,7 @@ branded_colors <- c("col_religion" = col_religion, "col_volunteer" = col_volunte
 
 
 <!-- https://github.com/qmd-lab/closeread/issues/158 -->
-::::: {style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Futura;"}
+::::: {style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Karla;"}
 
 ::::{.cr-section layout="sidebar-right"}
 
@@ -58,9 +60,7 @@ Data <s>visualisation</s> story
 @cr-why
 
 ::: {#cr-why .large-fixed-text-left}
-
 Just like any other story, data stories can be...
-
 :::
 
 Informative
@@ -73,7 +73,7 @@ Beautiful
 
 :::::
 
-::::: {style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
+::::: {style="--cr-narrative-font-size:var(--size-large);--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
 ::::{.cr-section layout="sidebar-left"}
 
 @cr-dataviz-simple-definition
@@ -150,7 +150,7 @@ gg_pie / gg_bar / gg_donut / gg_lines
 ::: {#cr-dataviz-full-definition .medium-fixed-text}
 A **data visualisation** is *just* a graphical representation of data.
 
-Dataviz are not necessarily intelligible - and can be quite confusing. 
+<span style='color:black'>Dataviz are not necessarily intelligible - which is where data stories come in.</span>
 :::
 
 ```{r}
@@ -215,7 +215,7 @@ I'll demonstrate by sharing **my** favourite data story - ["A Day in the Life of
 
 :::::
 
-::::: {style="--cr-narrative-font-size:2rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
+::::: {style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
 ::::{.cr-section layout="sidebar-left"}
 
 Sit back and take in this 60 second clip of Nathan Yau's data story. While watching I want you to think about a few questions...
@@ -239,7 +239,7 @@ Sit back and take in this 60 second clip of Nathan Yau's data story. While watch
 
 :::::
 
-::::: {style="--cr-narrative-font-size:1.75rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
+::::: {style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
 ::::{.cr-section layout="sidebar-left"}
 
 Let me take you through some of the comments I've heard people make about this data story. @cr-day-in-the-life-420
@@ -283,7 +283,7 @@ This is beautiful data storytelling.
 ::::
 :::::
 
-::::: {style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Futura;"}
+::::: {style="--cr-narrative-font-size:var(--size-large);"}
 
 ::::{.cr-section layout="sidebar-right"}
 
@@ -303,7 +303,7 @@ This doesn't mean that great data stories need to...
 
 :::::
 
-::::: {style="--cr-narrative-font-size:2rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
+::::: {style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
 ::::{.cr-section layout="sidebar-left"}
 
 This is my **2nd favourite** data story.
@@ -382,7 +382,7 @@ There are lots of faults to find with that.
 
 :::::
 
-::::: {style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Futura;"}
+::::: {style="--cr-narrative-font-size:var(--size-large);"}
 
 ::::{.cr-section layout="sidebar-right"}
 
@@ -396,7 +396,7 @@ Let's help you find your favourite data story!
 
 :::::
 
-::::: {style="--cr-narrative-font-size:2rem;--cr-narrative-font-family:Futura;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
+::::: {style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
 ::::{.cr-section layout="sidebar-left"}
 
 [TidyTuesday](https://github.com/rfordatascience/tidytuesday) is an incredible project that collates free, open-source datasets every week.
@@ -499,3 +499,49 @@ Consider joining the **free, friendly and open-source** [Data Science Learning C
 
 ::::
 :::::
+
+::::: {style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-font-family:Karla;"}
+
+::::{.cr-section layout="sidebar-left"}
+
+@cr-wrap-up
+
+:::{#cr-wrap-up style='font-size:var(--size-normal);padding-right:50px;'}
+This *scrollytelling* article was written by [Charlotte Hadley](https://visibledata.co.uk/) as an entry in the 2024 Closeread competition - the code is on GitHubXXXX.
+
+You can find @charliejhadley on [BlueSky](https://bsky.app/profile/charliejhadley.bsky.social) and [LinkedIn](https://www.linkedin.com/in/charliejhadley/), if you've been inspired to find a favourite data story please let her know with **#favedatastory**.
+
+<hr/>
+
+[Closeread](https://closeread.dev/) is a scrollytelling Quarto format. 
+
+Not heard of Quarto?! It's incredible. Use R, Python or Julia to build rich HTML, PDF or even Microsoft Office formatted reports - learn more at [quarto.org](https://quarto.org).
+
+Quarto and the Closeread competition are sponsored by [Posit, PBC](https://quarto.org/about.html)
+
+:::: columns
+::: {.column width="40%"}
+<img src='quarto.jpg' width='100%'/>
+:::
+
+::: {.column width="40%"}
+<img src='posit.jpg' width='100%'/>
+:::
+
+::: {.column width="20%"}
+:::
+
+::::
+
+:::
+
+![](a-day-in-the-life-420-screenshot.png)
+<br>
+['A Day in the Life'](https://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans/) was created by Nathan Yau.
+<br>
+<br>
+FlowingData [provides membership](https://flowingdata.com/membership/) that includes tutorials on how to make similar charts.
+
+![](a-day-in-the-life-420-screenshot.png)
+
+::::
