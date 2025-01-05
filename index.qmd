@@ -506,7 +506,7 @@ data_tidy_tuesdays %>%
 ![](elevators.jpeg)<br>
 From [Dan Oehm, @danoehm](https://gradientdescending.com/category/tidy-tuesday/)
 
-The [TudyTuesday](https://github.com/rfordatascience/tidytuesday) project isn't just a great place for you to find your favourite data story.
+The [TidyTuesday](https://github.com/rfordatascience/tidytuesday) project isn't just a great place for you to find your favourite data story.
 <br>
 <br>
 It's also an opportunity for you to flex your storytelling skills!
