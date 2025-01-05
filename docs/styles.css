@@ -3,16 +3,19 @@
   font-family:Karla;
   padding-left:50px;
   font-weight: 800;
+  color: var(--col-text);
 }
 
+
 p {
-  color: var(--col-text);;
+  color: var(--col-text);
 }
 
 .medium-fixed-text {
   font-size:var(--size-medium);
   font-family:Karla;
   padding-right:50px;
+  color: var(--col-text);
 }
 
 .medium-fixed-text p{

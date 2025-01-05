@@ -39,7 +39,6 @@ col_travel <- "#BBBBBB"
 branded_colors <- c("col_religion" = col_religion, "col_volunteer" = col_volunteer, "col_phone" = col_phone, "col_misc" = col_misc, "col_sleeping" = col_sleeping, "col_personal_care" = col_personal_care, "col_edu" = col_edu, "col_eat" = col_eat, "col_work" = col_work, "col_housework" = col_housework, "col_household_care" = col_household_care, "col_nonhouse_care" = col_nonhouse_care, "col_shopping" = col_shopping, "col_pro_care" = col_pro_care, "col_leisure" = col_leisure, "col_sports" = col_sports)
 ```
 
-
 <!-- https://github.com/qmd-lab/closeread/issues/158 -->
 ::::: {style="--cr-narrative-font-size:var(--size-large);--cr-narrative-font-family:Karla;"}
 
@@ -218,11 +217,17 @@ I'll demonstrate by sharing **my** favourite data story - ["A Day in the Life of
 ::::: {style="--cr-narrative-font-size:2vw;--cr-narrative-sidebar-width: 1fr;--cr-section-background-color:white"}
 ::::{.cr-section layout="sidebar-left"}
 
-Sit back and take in this 60 second clip of Nathan Yau's data story. While watching I want you to think about a few questions...
+Sit back :tea:
+<br>
+<br>
+Watch this 60 second clip of Nathan Yau's data story. 
+<br>
+<br>
+While watching I want you to think about a few questions...
 @cr-day-in-the-life-short
 
 ::: {#cr-day-in-the-life-short .scale-to-fill}
-{{< video a-day-in-the-life_1080.mp4 width="100%">}}
+{{< video a-day-in-the-life_1080.mp4 width="110%">}}
 :::
 
 - What's the first thing you notice?
@@ -256,7 +261,7 @@ Let me take you through some of the comments I've heard people make about this d
 
 :bus: It's really clever to put <span style="color:var(--col-travel)">travelling as grey and in the middle</span>.<br><br><em>Commuting is a liminal state</em>.<br>You're likely not in a traffic jam because you **want to be**. [@cr-day-in-the-life-420]{pan-to="-20%,0%" scale-by="1.1"}
 
-:face_with_spiral_eyes: But wait a minute...<br><br>What does it mean when there's a different coloured dot in a cluster?<br>Is there really someone <span style="color:var(--col-sleeping)">sleeping</span> while at <span style="color:var(--col-work)">work</span> - are they using a nap pod?[@cr-day-in-the-life-420]{pan-to="-10%,-80%" scale-by="3"}
+:face_with_spiral_eyes: But wait a minute...<br><br>What does it mean when there's a different coloured dot in a cluster?<br><br>Is there someone <span style="color:var(--col-sleeping)">sleeping</span> while at <span style="color:var(--col-work)">work</span> - are they using a nap pod?[@cr-day-in-the-life-420]{pan-to="-10%,-80%" scale-by="3"}
 
 :monocle_face: Actually, how sure are we that this is **exactly** what people are doing at 4:20pm?<br><br>Who are these people?<br><br>Where is the data from?[@cr-day-in-the-life-420]
 
@@ -293,11 +298,11 @@ This is beautiful data storytelling.
 This doesn't mean that great data stories need to...
 :::
 
-... be interactive
+Be interactive
 
-... take a data visualisation expert to build
+Take a data visualisation expert to build
 
-... use a chart type you've never seen before
+Use a chart you've never seen before
 
 ::::
 
@@ -319,7 +324,7 @@ It's very much the opposite of the first data story
 ![](flavour-pairing-network.png)
 :::
 
-Nathan Yau's "Day in the Life" was very much an enjoyable <em>choose your own adventure data story</em>.
+Nathan Yau's "A Day in the Life" was very much an enjoyable <em>choose your own adventure data story</em>.
 <br>
 <br>
 This is very much a **difficult read** as bibliophiles might say. It's dense.
@@ -327,7 +332,7 @@ This is very much a **difficult read** as bibliophiles might say. It's dense.
 Colour indicates ingredient type. 
 <br>
 <br>
-Size indicates prelevance in the **56,000 recipes** studied in the paper it comes from.
+Size indicates prevalence in the **56,000 recipes** studied in the paper it comes from.
 <br>
 <br>
 Lines between ingredients indicate they share flavour chemicals.
@@ -336,7 +341,7 @@ Lines between ingredients indicate they share flavour chemicals.
 That's fascinating! 
 <br>
 <br>
-The [research paper investigates](https://doi.org/10.1038/srep00196) which regional cuisines prefer their recipes to contain similar or disimilar flavours!
+The [research paper investigates](https://doi.org/10.1038/srep00196) which regional cuisines prefer their recipes to contain similar or dissimilar flavours!
 <br>
 <br>
 I **love** that this has been studied and that this visualisation tries to bring all that information together.
@@ -402,7 +407,7 @@ Let's help you find your favourite data story!
 [TidyTuesday](https://github.com/rfordatascience/tidytuesday) is an incredible project that collates free, open-source datasets every week.
 <br>
 <br>
-Folks are then invited to visualise the datasets and share them with the hashtag #tidytuesday on social media.
+Folks are invited to visualise the datasets and share them with the hashtag #tidytuesday on social media.
 @cr-intro-tidytuesday
 
 ```{r}
@@ -413,23 +418,34 @@ data_tidy_tuesdays <- read_csv("tidytuesday-example-datasets.csv") %>%
 ```
 
 ::: {#cr-intro-tidytuesday}
-![](tidytuesday.png)
+![](tidytuesday.png){width="80%"}
 ```{r}
+react_col_spec <- list(type = colDef(show = FALSE),
+                           date = colDef(name = "Date Published",
+                                         width = 150),
+                           data = colDef(name = "Dataset Title",
+                                         maxWidth = 300),
+                           article = colDef(name = "Dataset Source"))
+
+react_theme_spec <- reactableTheme(style = list(fontFamily = "Karla"))
+
 data_tidy_tuesdays %>% 
   select(date, data, article, type) %>% 
-  reactable(columns = list(type = colDef(show = FALSE))
+  reactable(columns = react_col_spec,
+            theme = react_theme_spec
   )
 ```
 :::
 
-Often the datasets cover important social and political topics[@cr-important-tidytuesday]
+Often the datasets cover important social and political topics.[@cr-important-tidytuesday]
 
 ::: {#cr-important-tidytuesday}
-![](tidytuesday.png)
+![](tidytuesday.png){width="80%"}
 ```{r}
 data_tidy_tuesdays %>% 
   select(date, data, article, type) %>% 
-  reactable(columns = list(type = colDef(show = FALSE)),
+  reactable(columns = react_col_spec,
+            theme = react_theme_spec,
   rowStyle = function(index) {
       if (.[index, "type"] == "Important") {
         list(background = colorspace::lighten(col_work, 0.6))
@@ -448,11 +464,12 @@ From [Abhinav Malasi, @datarooster](https://www.instagram.com/p/CpdvddrD3yT/?hl=
 There are plenty of fun datasets...[@cr-fun-tidytuesday]
 
 ::: {#cr-fun-tidytuesday}
-![](tidytuesday.png)
+![](tidytuesday.png){width="80%"}
 ```{r}
 data_tidy_tuesdays %>% 
   select(date, data, article, type) %>% 
-  reactable(columns = list(type = colDef(show = FALSE)),
+  reactable(columns = react_col_spec,
+            theme = react_theme_spec,
   rowStyle = function(index) {
       if (.[index, "type"] == "Fun") {
         list(background = colorspace::lighten(col_leisure, 0.6))
@@ -468,14 +485,15 @@ From [Joe Shaw, @JosephShaw_](https://joseph-shaw.github.io/)
 ![](lego-cara.png)<br>
 From [Cara Thompson, @cararthompson](https://www.cararthompson.com/portfolio)
 
-And there are also... unusual datasets[@cr-unusual-tidytuesday]
+There are also... unusual datasets.[@cr-unusual-tidytuesday]
 
 ::: {#cr-unusual-tidytuesday}
-![](tidytuesday.png)
+![](tidytuesday.png){width="80%"}
 ```{r}
 data_tidy_tuesdays %>% 
   select(date, data, article, type) %>% 
-  reactable(columns = list(type = colDef(show = FALSE)),
+  reactable(columns = react_col_spec,
+            theme = react_theme_spec,
   rowStyle = function(index) {
       if (.[index, "type"] == "Unusual") {
         list(background = colorspace::lighten(col_misc, 0.6))
@@ -491,7 +509,7 @@ From [Dan Oehm, @danoehm](https://gradientdescending.com/category/tidy-tuesday/)
 The [TudyTuesday](https://github.com/rfordatascience/tidytuesday) project isn't just a great place for you to find your favourite data story.
 <br>
 <br>
-It's also an opportunity for you to flex your storytelling capabilities!
+It's also an opportunity for you to flex your storytelling skills!
 Consider joining the **free, friendly and open-source** [Data Science Learning Community](https://dslc.io/).
 <br>
 <br>
@@ -500,22 +518,22 @@ Consider joining the **free, friendly and open-source** [Data Science Learning C
 ::::
 :::::
 
-::::: {style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-font-family:Karla;"}
+::::: {style="--cr-narrative-font-size:var(--size-normal);--cr-narrative-font-family:Karla;--cr-narrative-sidebar-width: 1fr;"}
 
 ::::{.cr-section layout="sidebar-left"}
 
 @cr-wrap-up
 
 :::{#cr-wrap-up style='font-size:var(--size-normal);padding-right:50px;'}
-This *scrollytelling* article was written by [Charlotte Hadley](https://visibledata.co.uk/) as an entry in the 2024 Closeread competition - the code is on GitHubXXXX.
+This *scrollytelling* article was written by [Charlotte Hadley](https://visibledata.co.uk/) as an entry in the 2024 Closeread competition - the [code is on GitHub](https://github.com/charliejhadley/you-should-have-a-fave-data-story/releases/tag/closeread-competition).
 
-You can find @charliejhadley on [BlueSky](https://bsky.app/profile/charliejhadley.bsky.social) and [LinkedIn](https://www.linkedin.com/in/charliejhadley/), if you've been inspired to find a favourite data story please let her know with **#favedatastory**.
+You can find \@charliejhadley on [BlueSky](https://bsky.app/profile/charliejhadley.bsky.social) and [LinkedIn](https://www.linkedin.com/in/charliejhadley/). If you've been inspired to choose a favourite data story please let her know with **#favedatastory**.
 
 <hr/>
 
 [Closeread](https://closeread.dev/) is a scrollytelling Quarto format. 
 
-Not heard of Quarto?! It's incredible. Use R, Python or Julia to build rich HTML, PDF or even Microsoft Office formatted reports - learn more at [quarto.org](https://quarto.org).
+Not heard of Quarto?! It's incredible. Use R, Python or Julia to build rich HTML, PDF and even Microsoft Office formatted reports - learn more at [quarto.org](https://quarto.org).
 
 Quarto and the Closeread competition are sponsored by [Posit, PBC](https://quarto.org/about.html)
 
@@ -535,13 +553,25 @@ Quarto and the Closeread competition are sponsored by [Posit, PBC](https://quart
 
 :::
 
-![](a-day-in-the-life-420-screenshot.png)
+![](a-day-in-the-life-420-screenshot.png){width="100%"}
 <br>
 ['A Day in the Life'](https://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans/) was created by Nathan Yau.
 <br>
 <br>
 FlowingData [provides membership](https://flowingdata.com/membership/) that includes tutorials on how to make similar charts.
 
-![](a-day-in-the-life-420-screenshot.png)
+![](flavour-pairing-network.png){width="100%"}
+<br>
+This chart came from this 2011 open-access paper in Nature; Flavor network and the principles of food pairing, [DOI:10.1038/srep00196](https://doi.org/10.1038/srep00196)
+
+![](beeonaposy-time-allocation.jpeg){width="100%"}
+<br>
+[Caitlin Hudson](https://www.caitlinhudon.com/) published this chart as part of an [incredible Twitter thread](https://x.com/beeonaposy/status/1215830967719485441).
+
+![](lego-cara.png){width="100%"}
+<br>
+Special thanks to the wonderful [@cararthompson](https://www.cararthompson.com/portfolio) for her support editing this article.
+
+
 
 ::::
